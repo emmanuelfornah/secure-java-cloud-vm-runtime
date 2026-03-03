@@ -1,0 +1,45 @@
+# SystemD Service Unit File for Java Spring Boot Application
+# Location: /etc/systemd/system/myapp.service
+# After creating/editing: sudo systemctl daemon-reload
+
+[Unit]
+Description=Java Spring Boot Application - Cloud Server Foundation
+# Start after network is available
+After=network.target
+
+[Service]
+# Service type - simple means the process doesn't fork
+Type=simple
+
+# Run as non-root user for security
+User=appuser
+Group=appuser
+
+# Working directory for the application
+WorkingDirectory=/opt/app/current
+
+# Command to start the application
+ExecStart=/usr/bin/java -jar /opt/app/current/app.jar
+
+# Restart policy - restart on failure
+Restart=on-failure
+RestartSec=10
+
+# Logging configuration
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=myapp
+
+# Security settings
+# Prevent privilege escalation
+NoNewPrivileges=true
+# Use private /tmp directory
+PrivateTmp=true
+
+# Resource limits
+# Maximum number of open files
+LimitNOFILE=65536
+
+[Install]
+# Start on multi-user runlevel (normal boot)
+WantedBy=multi-user.target

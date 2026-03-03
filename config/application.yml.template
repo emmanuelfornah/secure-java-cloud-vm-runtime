@@ -1,0 +1,41 @@
+# Spring Boot Application Configuration Template
+# Location: src/main/resources/application.yml or /opt/app/config/application.yml
+
+server:
+  # Application port - must match firewall rules
+  port: 7071
+  
+  # Enable response compression
+  compression:
+    enabled: true
+    min-response-size: 1024
+
+# Spring Boot Actuator - Health and monitoring endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        # Expose health and info endpoints
+        include: health,info
+  
+  endpoint:
+    health:
+      # Show detailed health information when authorized
+      show-details: when-authorized
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    com.devops: DEBUG
+  
+  # Log pattern
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# Application info (shown at /actuator/info)
+info:
+  app:
+    name: Cloud Server Foundation
+    description: DevOps Module 5 - Cloud Infrastructure Demo
+    version: 1.0.0

@@ -1,0 +1,30 @@
+# SSH Server Configuration Template - Hardened for Security
+# Location: /etc/ssh/sshd_config
+# After editing, restart SSH: sudo systemctl restart sshd
+
+# Disable root login - forces use of non-root user with sudo
+PermitRootLogin no
+
+# Disable password authentication - only SSH keys allowed
+PasswordAuthentication no
+
+# Enable public key authentication
+PubkeyAuthentication yes
+
+# Disable challenge-response authentication
+ChallengeResponseAuthentication no
+
+# Use PAM for session management
+UsePAM yes
+
+# Disable X11 forwarding (not needed for server)
+X11Forwarding no
+
+# Don't print message of the day
+PrintMotd no
+
+# Accept locale environment variables
+AcceptEnv LANG LC_*
+
+# SFTP subsystem for file transfers
+Subsystem sftp /usr/lib/openssh/sftp-server
