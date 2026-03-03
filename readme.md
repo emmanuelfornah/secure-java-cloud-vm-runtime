@@ -1,19 +1,39 @@
-# Secure Cloud VM Deployment of Java Application
+# Secure Java Cloud VM Runtime
 
-Production-grade infrastructure automation for deploying Java applications to cloud VMs with security hardening, automated provisioning, and service management.
+Production-grade cloud infrastructure project demonstrating secure Linux VM provisioning, application runtime hardening, and automated Java deployment workflows.
 
-## Overview
+## Executive Summary
 
-Provisioned and hardened a Linux cloud VM and deployed a Java application artifact built with Gradle. Demonstrates infrastructure automation, security best practices, and production deployment workflows.
+This project provisions and hardens a Linux cloud VM, deploys a Java application artifact built with Gradle, and configures a secure runtime environment using system-level controls.
+
+It reflects real-world infrastructure engineering practices including:
+
+- SSH hardening and access control
+- Least-privilege Linux user management
+- Firewall configuration and port isolation
+- SystemD service orchestration
+- Automated artifact deployment
+- Application health verification
+
+This repository represents a secure, production-ready baseline for VM-based application hosting.
 
 ## Key Capabilities
 
-- **Cloud VM Provisioning**: Automated server setup on DigitalOcean
+- **Infrastructure Provisioning**: Cloud VM provisioning and secure runtime configuration
 - **Security Hardening**: SSH key-based auth, disabled root login, minimal firewall rules
 - **User Isolation**: Non-root application user with controlled sudo access
 - **Automated Deployment**: Scripts for repeatable infrastructure provisioning
 - **Service Management**: SystemD for automatic startup and restart on failure
 - **Health Monitoring**: Automated health checks and verification
+
+## Engineering Decisions
+
+- Disabled root SSH login to reduce attack surface
+- Enforced key-based authentication only
+- Created dedicated application user to isolate runtime permissions
+- Used SystemD to ensure automatic restart on failure
+- Configured UFW to allow only required ports (22, 7071)
+- Structured deployment scripts for repeatability and auditability
 
 ## 🏗️ Architecture
 
@@ -42,7 +62,7 @@ See [Architecture Documentation](docs/architecture.md) for detailed diagrams and
 
 ```bash
 git clone <repository-url>
-cd cloud-server-foundation
+cd secure-java-cloud-vm-runtime
 ```
 
 ### 2. Configure Deployment
@@ -119,7 +139,7 @@ curl http://your-droplet-ip:7071/actuator/health
 ## 📁 Repository Structure
 
 ```
-cloud-server-foundation/
+secure-java-cloud-vm-runtime/
 ├── config/                      # Configuration templates
 │   ├── sshd_config.template    # Hardened SSH configuration
 │   ├── myapp.service.template  # SystemD service file
@@ -149,7 +169,7 @@ Update these in `scripts/deploy.sh`:
 |----------|-------------|---------|
 | `DROPLET_IP` | DigitalOcean Droplet IP address | YOUR_DROPLET_IP |
 | `DROPLET_USER` | Application user name | YOUR_USERNAME |
-| `LOCAL_JAR` | Path to built JAR file | build/libs/cloud-server-foundation-1.0.0.jar |
+| `LOCAL_JAR` | Path to built JAR file | build/libs/secure-java-cloud-vm-runtime-1.0.0.jar |
 | `REMOTE_DIR` | Application directory on server | /opt/app/current |
 | `SERVICE_NAME` | SystemD service name | myapp |
 
