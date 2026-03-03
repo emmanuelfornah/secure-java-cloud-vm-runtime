@@ -46,17 +46,13 @@ See [Architecture Documentation](docs/architecture.md) for detailed diagrams and
 - Spring Boot Application
 - SystemD Service Management
 
-## 🚀 Quick Start
+## Deployment
 
 ### Prerequisites
 
-- DigitalOcean account with Droplet created
-- SSH key pair generated and added to Droplet
-- Local machine with:
-  - Java 17 JDK
-  - Gradle 8.x
-  - SSH client
-  - Git
+- Cloud VM (Ubuntu 22.04 LTS or later)
+- SSH key-based authentication configured
+- Java 17 JDK and Gradle 8.x installed locally
 
 ### 1. Clone Repository
 
@@ -272,17 +268,7 @@ curl http://localhost:7071/actuator/health
 - ✅ SystemD security settings
 - ✅ Regular security updates
 
-## Technical Stack
-
-- **Cloud Provider**: DigitalOcean
-- **OS**: Ubuntu 22.04 LTS
-- **Runtime**: Java 17 JDK
-- **Build Tool**: Gradle 8.x
-- **Framework**: Spring Boot 3.5.5
-- **Service Manager**: SystemD
-- **Firewall**: UFW (Uncomplicated Firewall)
-
-## Improvements
+## Platform Evolution Roadmap
 
 - Containerize application with Docker
 - Replace manual provisioning with Terraform
@@ -290,8 +276,13 @@ curl http://localhost:7071/actuator/health
 - Implement blue-green deployment strategy
 - Add centralized logging and monitoring
 
----
+## Tech Stack
 
-**Infrastructure**: DigitalOcean Cloud VMs  
-**Automation**: Bash scripting, SystemD  
-**Security**: SSH hardening, UFW firewall, user isolation
+- **Cloud**: DigitalOcean
+- **OS**: Ubuntu 22.04 LTS
+- **Runtime**: Java 17
+- **Build**: Gradle 8.x
+- **Framework**: Spring Boot 3.5.5
+- **Service Manager**: SystemD
+- **Firewall**: UFW
+- **Automation**: Bash
