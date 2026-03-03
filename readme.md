@@ -1,26 +1,19 @@
-# Cloud Server Foundation
+# Secure Cloud VM Deployment of Java Application
 
-> DevOps Module 5: Cloud & Infrastructure as a Service Basics
+Production-grade infrastructure automation for deploying Java applications to cloud VMs with security hardening, automated provisioning, and service management.
 
-A production-grade infrastructure project demonstrating secure cloud server provisioning, SSH hardening, user management, firewall configuration, and Java application deployment on DigitalOcean.
+## Overview
 
-## 📋 Overview
+Provisioned and hardened a Linux cloud VM and deployed a Java application artifact built with Gradle. Demonstrates infrastructure automation, security best practices, and production deployment workflows.
 
-This repository showcases infrastructure engineering fundamentals by deploying a Java Spring Boot application to a DigitalOcean Droplet with security best practices:
+## Key Capabilities
 
-- **Secure SSH Configuration**: Disabled root login, key-based authentication only
-- **Least Privilege User Model**: Non-root application user with controlled sudo access
-- **Firewall Hardening**: UFW configured with minimal open ports
-- **Automated Deployment**: Scripts for repeatable infrastructure setup
+- **Cloud VM Provisioning**: Automated server setup on DigitalOcean
+- **Security Hardening**: SSH key-based auth, disabled root login, minimal firewall rules
+- **User Isolation**: Non-root application user with controlled sudo access
+- **Automated Deployment**: Scripts for repeatable infrastructure provisioning
 - **Service Management**: SystemD for automatic startup and restart on failure
-
-## 🎯 Business Value
-
-- ✅ Reduced attack surface through SSH hardening
-- ✅ Enforced least-privilege security model
-- ✅ Secure runtime environment for Java applications
-- ✅ Repeatable deployment foundation
-- ✅ Production-ready cloud baseline
+- **Health Monitoring**: Automated health checks and verification
 
 ## 🏗️ Architecture
 
@@ -259,37 +252,26 @@ curl http://localhost:7071/actuator/health
 - ✅ SystemD security settings
 - ✅ Regular security updates
 
-## 📖 Learning Objectives
+## Technical Stack
 
-This project demonstrates:
+- **Cloud Provider**: DigitalOcean
+- **OS**: Ubuntu 22.04 LTS
+- **Runtime**: Java 17 JDK
+- **Build Tool**: Gradle 8.x
+- **Framework**: Spring Boot 3.5.5
+- **Service Manager**: SystemD
+- **Firewall**: UFW (Uncomplicated Firewall)
 
-1. Cloud server provisioning (DigitalOcean)
-2. SSH security hardening
-3. Linux user management and sudo configuration
-4. UFW firewall configuration
-5. Java runtime environment setup
-6. SystemD service management
-7. Automated deployment workflows
-8. Application health monitoring
+## Improvements
 
-## 🚦 Next Steps
-
-After completing this module:
-
-1. **Module 6**: Set up Nexus artifact repository
-2. **Module 7**: Containerize with Docker
-3. **Module 8**: Implement CI/CD with Jenkins
-
-## 📝 License
-
-This is an educational project for DevOps learning.
-
-## 🤝 Contributing
-
-This is a learning repository. Feel free to fork and adapt for your own learning journey!
+- Containerize application with Docker
+- Replace manual provisioning with Terraform
+- Add CI/CD pipeline with Jenkins or GitHub Actions
+- Implement blue-green deployment strategy
+- Add centralized logging and monitoring
 
 ---
 
-**Module**: Cloud & Infrastructure as a Service Basics  
-**Course**: TechWorld with Nana - DevOps Bootcamp  
-**Technologies**: DigitalOcean, Linux, Java 17, Gradle, Spring Boot, SystemD, UFW
+**Infrastructure**: DigitalOcean Cloud VMs  
+**Automation**: Bash scripting, SystemD  
+**Security**: SSH hardening, UFW firewall, user isolation

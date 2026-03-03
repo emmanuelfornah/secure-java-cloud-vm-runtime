@@ -2,7 +2,7 @@
 
 ## What You Have Now
 
-Your repository is ready for Module 5 deployment! Here's what's been created:
+Your repository is ready for cloud infrastructure deployment! Here's what's been created:
 
 ### 📁 Repository Structure
 ```
